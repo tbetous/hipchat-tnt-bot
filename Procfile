@@ -1,0 +1,1 @@
+web: java $JAVA_OPTS -Ddw.server.connector.port=$PORT -jar target/hipchat-tnt-bot-0.0.1-SNAPSHOT.jar server configs/conf.yaml

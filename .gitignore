@@ -1,5 +1,6 @@
 ven
 target/
+dependency-reduced-pom.xml
 
 # IntelliJ IDEA
 .idea/

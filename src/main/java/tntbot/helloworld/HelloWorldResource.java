@@ -6,14 +6,21 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-@Path("/")
+import tntbot.core.Notification;
+import tntbot.core.NotificationBuilder;
+
+@Path("/hello")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class HelloWorldResource {
 
 	@GET
-	public String hello() {
-		return "Hello world !";
+	public Notification hello() {
+		return new NotificationBuilder()
+			.withMessage("Hello world !")
+			.withNotify(true)
+			.withColor("green")
+			.build();
 	}
 	
 }

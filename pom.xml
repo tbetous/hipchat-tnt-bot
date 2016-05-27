@@ -5,6 +5,12 @@
 	<artifactId>hipchat-tnt-bot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>hipchat-tnt-bot</name>
+	
+    <properties>
+        <java.version>8</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+    </properties>
 
 	<dependencies>
 		<dependency>

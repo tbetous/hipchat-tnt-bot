@@ -5,6 +5,7 @@ import javax.ws.rs.core.MediaType;
 
 import tntbot.core.Notification;
 import tntbot.core.NotificationBuilder;
+import tntbot.core.NotificationColor;
 
 @Path("/hello")
 @Produces(MediaType.APPLICATION_JSON)
@@ -16,7 +17,7 @@ public class HelloWorldResource {
 		return new NotificationBuilder()
 			.withMessage("Hello world !")
 			.withNotify(true)
-			.withColor("green")
+			.withColor(NotificationColor.GREEN)
 			.build();
 	}
 	

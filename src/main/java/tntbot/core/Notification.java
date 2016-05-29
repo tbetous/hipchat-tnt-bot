@@ -1,17 +1,27 @@
 package tntbot.core;
 
+import com.fasterxml.jackson.annotation.JsonGetter;
+
+/**
+ * Notification sent to a room
+ */
 public class Notification {
-	private String color;
+	private NotificationColor color;
 	private String message;
 	private boolean notify;
 	
 	protected Notification(){}
 	
-	public String getColor() {
+	public NotificationColor getColor() {
 		return color;
 	}
+
+	@JsonGetter(value = "color")
+	public String getColorValue() {
+		return color.getValue();
+	}
 	
-	protected void setColor(String color) {
+	protected void setColor(NotificationColor color) {
 		this.color = color;
 	}
 	

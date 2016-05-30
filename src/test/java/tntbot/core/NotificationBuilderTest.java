@@ -1,5 +1,6 @@
 package tntbot.core;
 
+import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -12,22 +13,22 @@ public class NotificationBuilderTest {
     @Test
     public void should_return_notification_with_default_message_when_not_specified() {
         Notification notification = new NotificationBuilder().build();
-
-        assertTrue(notification.getMessage().equals(""));
+        	
+        Assertions.assertThat(notification.getMessage()).isEqualTo("");
     }
 
     @Test
     public void should_return_notification_with_default_color_when_not_specified() {
         Notification notification = new NotificationBuilder().build();
-
-        assertTrue(notification.getColor().equals(NotificationColor.RANDOM));
+        
+        Assertions.assertThat(notification.getColor()).isEqualTo(NotificationColor.RANDOM);
     }
 
     @Test
     public void should_return_notification_with_default_notify_value_when_not_specified() {
         Notification notification = new NotificationBuilder().build();
 
-        assertTrue(!notification.isNotify());
+        Assertions.assertThat(notification.isNotify()).isFalse();
     }
 
 }

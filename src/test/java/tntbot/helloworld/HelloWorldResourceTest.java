@@ -1,7 +1,6 @@
 package tntbot.helloworld;
 
-import static org.junit.Assert.assertTrue;
-
+import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
 import tntbot.core.Notification;
@@ -13,20 +12,20 @@ public class HelloWorldResourceTest {
 	public void should_return_notification_with_greeting_message() {
 		HelloWorldResource helloWorldRessource = new HelloWorldResource();
 		Notification notification = helloWorldRessource.hello();
-		assertTrue(notification.getMessage().equals("Hello world !"));
+		Assertions.assertThat(notification.getMessage()).isEqualTo("Hello world !");
 	}
 	
 	@Test
 	public void should_return_notification_with_green_as_color() {
 		HelloWorldResource helloWorldRessource = new HelloWorldResource();
 		Notification notification = helloWorldRessource.hello();
-		assertTrue(notification.getColor().equals(NotificationColor.GREEN));
+		Assertions.assertThat(notification.getColor()).isEqualTo(NotificationColor.GREEN);
 	}
 	
 	@Test
 	public void should_return_notification_that_notify_users() {
 		HelloWorldResource helloWorldRessource = new HelloWorldResource();
 		Notification notification = helloWorldRessource.hello();
-		assertTrue(notification.isNotify());
+		Assertions.assertThat(notification.isNotify()).isTrue();
 	}
 }

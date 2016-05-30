@@ -13,6 +13,7 @@
         
         <dropwizard.version>0.9.2</dropwizard.version>
         <junit.version>4.12</junit.version>
+        <assertJ.version>3.4.1</assertJ.version>
     </properties>
 
 	<dependencies>
@@ -27,6 +28,11 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+		    <groupId>org.assertj</groupId>
+		    <artifactId>assertj-core</artifactId>
+		    <version>${assertJ.version}</version>
+		</dependency>
 	</dependencies>
 
 	<build>

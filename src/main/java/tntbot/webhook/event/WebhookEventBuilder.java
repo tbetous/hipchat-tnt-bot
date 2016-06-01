@@ -1,14 +1,17 @@
 package tntbot.webhook.event;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public abstract class WebhookEventBuilder {
 	private String event;
 	private String oauthClientId;
-	private long webhookId;
-	
+	private Long webhookId;
+
 	public String getEvent() {
 		return event;
 	}
-	
+
+	@JsonProperty(value = "event")
 	public WebhookEventBuilder withEvent(String event) {
 		this.event = event;
 		return this;
@@ -17,17 +20,19 @@ public abstract class WebhookEventBuilder {
 	public String getOauthClientId() {
 		return oauthClientId;
 	}
-	
+
+	@JsonProperty(value = "oauth_client_id")
 	public WebhookEventBuilder withOauthClientId(String oauthClientId) {
 		this.oauthClientId = oauthClientId;
 		return this;
 	}
 	
-	public long getWebhookId() {
+	public Long getWebhookId() {
 		return webhookId;
 	}
-	
-	public WebhookEventBuilder withWebhookId(long webhookId) {
+
+	@JsonProperty(value = "webhook_id")
+	public WebhookEventBuilder withWebhookId(Long webhookId) {
 		this.webhookId = webhookId;
 		return this;
 	}

@@ -6,8 +6,8 @@ import com.fasterxml.jackson.annotation.JsonGetter;
  * Notification sent to a room
  */
 public class Notification {
-	private NotificationColor color;
 	private String message;
+	private NotificationColor color;
 	private boolean notify;
 	
 	protected Notification(NotificationBuilder builder) {
@@ -18,11 +18,6 @@ public class Notification {
 	
 	public NotificationColor getColor() {
 		return color;
-	}
-
-	@JsonGetter(value = "color")
-	public String getColorValue() {
-		return color.getValue();
 	}
 	
 	public String getMessage() {

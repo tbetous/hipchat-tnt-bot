@@ -1,7 +1,10 @@
 package tntbot.webhook;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+@JsonDeserialize(builder = WebhookUserBuilder.class)
 public class WebhookUser {
-	private long id;
+	private Long id;
 	private WebhookLinks links;
 	private String mentionName;
 	private String name;
@@ -14,22 +17,24 @@ public class WebhookUser {
 		this.name = builder.getName();
 		this.version = builder.getVersion();
 	}
-	
-	protected long getId() {
+
+	public Long getId() {
 		return id;
 	}
-	protected WebhookLinks getLinks() {
+
+	public WebhookLinks getLinks() {
 		return links;
 	}
-	protected String getMentionName() {
+
+	public String getMentionName() {
 		return mentionName;
 	}
-	protected String getName() {
+
+	public String getName() {
 		return name;
 	}
-	protected String getVersion() {
+
+	public String getVersion() {
 		return version;
 	}
-	
-	
 }

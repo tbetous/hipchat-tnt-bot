@@ -1,9 +1,11 @@
 package tntbot.webhook;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import tntbot.core.RoomPrivacy;
 
+@JsonDeserialize(builder = WebhookRoomBuilder.class)
 public class WebhookRoom {
-	private long id;
+	private Long id;
 	private String name;
 	private boolean archived;
 	private WebhookLinks links;
@@ -19,7 +21,7 @@ public class WebhookRoom {
 		this.version = builder.getVersion();
 	}
 	
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 	

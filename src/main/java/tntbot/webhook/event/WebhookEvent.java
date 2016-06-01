@@ -1,10 +1,16 @@
 package tntbot.webhook.event;
 
-public abstract class WebhookEvent {
+public class WebhookEvent {
 	private String event;
 	private String oauthClientId;
-	private long webhookId;
-	
+	private Long webhookId;
+
+	protected WebhookEvent(WebhookEventBuilder builder) {
+		this.event = builder.getEvent();
+		this.oauthClientId = builder.getOauthClientId();
+		this.webhookId = builder.getWebhookId();
+	}
+
 	public String getEvent() {
 		return event;
 	}
@@ -13,7 +19,7 @@ public abstract class WebhookEvent {
 		return oauthClientId;
 	}
 	
-	public long getWebhookId() {
+	public Long getWebhookId() {
 		return webhookId;
 	}
 }

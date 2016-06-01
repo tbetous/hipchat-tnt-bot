@@ -1,5 +1,8 @@
 package tntbot.webhook;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+@JsonDeserialize(builder = WebhookLinksBuilder.class)
 public class WebhookLinks {
 	private String members;
 	private String participants;

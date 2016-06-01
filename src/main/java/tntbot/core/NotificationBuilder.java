@@ -4,15 +4,27 @@ public class NotificationBuilder {
 	private String message = "";
 	private NotificationColor color = NotificationColor.RANDOM;
 	private boolean notify = false;
+	
+	public NotificationColor getColor() {
+		return color;
+	}
 
 	public NotificationBuilder withColor(NotificationColor color) {
 		this.color = color;
 		return this;
 	}
 	
+	public String getMessage() {
+		return message;
+	}
+	
 	public NotificationBuilder withMessage(String message) {
 		this.message = message;
 		return this;
+	}
+	
+	public boolean isNotify() {
+		return notify;
 	}
 
 	public NotificationBuilder withNotify(boolean notify) {
@@ -21,11 +33,6 @@ public class NotificationBuilder {
 	}
 	
 	public Notification build() {
-		Notification result = new Notification();
-		result.setMessage(message);
-		result.setColor(color);
-		result.setNotify(notify);
-		
-		return result;
+		return new Notification(this);
 	}
 }

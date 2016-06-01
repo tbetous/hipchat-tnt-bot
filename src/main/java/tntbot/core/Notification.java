@@ -10,7 +10,11 @@ public class Notification {
 	private String message;
 	private boolean notify;
 	
-	protected Notification(){}
+	protected Notification(NotificationBuilder builder) {
+		this.message = builder.getMessage();
+		this.color = builder.getColor();
+		this.notify = builder.isNotify();
+	}
 	
 	public NotificationColor getColor() {
 		return color;
@@ -21,23 +25,11 @@ public class Notification {
 		return color.getValue();
 	}
 	
-	protected void setColor(NotificationColor color) {
-		this.color = color;
-	}
-	
 	public String getMessage() {
 		return message;
 	}
 	
-	protected void setMessage(String message) {
-		this.message = message;
-	}
-	
 	public boolean isNotify() {
 		return notify;
-	}
-
-	protected void setNotify(boolean notify) {
-		this.notify = notify;
 	}
 }

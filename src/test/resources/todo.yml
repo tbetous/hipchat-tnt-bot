@@ -1,0 +1,24 @@
+server:
+  applicationConnectors:
+    - type: http
+      port: 8180
+
+# Logging settings.
+logging:
+
+  # The default level of all loggers. Can be OFF, ERROR, WARN, INFO, DEBUG, TRACE, or ALL.
+  level: INFO
+
+  # Logger-specific levels.
+  loggers:
+
+    # Sets the level for 'com.example.app' to DEBUG.
+    com.example.app: DEBUG
+
+    #org.hibernate.SQL: ALL
+
+    #com.github.toastshaman: DEBUG
+
+  appenders:
+    - type: console
+      logFormat: "%logger{5}: %message%n"

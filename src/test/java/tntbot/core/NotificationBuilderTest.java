@@ -3,8 +3,6 @@ package tntbot.core;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
  * Created by Thomas Betous on 29/05/2016.
  */

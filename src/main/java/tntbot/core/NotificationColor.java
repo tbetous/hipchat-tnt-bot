@@ -1,5 +1,7 @@
 package tntbot.core;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 /**
  * Background color for message.
  */
@@ -17,6 +19,7 @@ public enum NotificationColor {
         this.value = value;
     }
 
+    @JsonValue
     public String getValue() {
         return value;
     }

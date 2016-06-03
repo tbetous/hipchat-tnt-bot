@@ -1,4 +1,4 @@
-package tntbot.helloworld;
+package tntbot.resources;
 
 import org.junit.Before;
 import org.junit.ClassRule;
@@ -12,6 +12,7 @@ import io.dropwizard.testing.junit.DropwizardAppRule;
 import io.dropwizard.testing.junit.ResourceTestRule;
 import tntbot.TntBotApplication;
 import tntbot.TntBotConfiguration;
+import tntbot.resources.HelloWorldResource;
 
 public class HelloWorldResourceIntegrationTest {
 

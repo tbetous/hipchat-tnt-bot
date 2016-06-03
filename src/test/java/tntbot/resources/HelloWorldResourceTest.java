@@ -1,10 +1,11 @@
-package tntbot.helloworld;
+package tntbot.resources;
 
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
 import tntbot.core.Notification;
 import tntbot.core.NotificationColor;
+import tntbot.resources.HelloWorldResource;
 
 public class HelloWorldResourceTest {
 	

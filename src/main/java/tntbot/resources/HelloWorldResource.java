@@ -1,4 +1,4 @@
-package tntbot.helloworld;
+package tntbot.resources;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;

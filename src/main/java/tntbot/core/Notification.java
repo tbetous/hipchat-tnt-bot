@@ -1,6 +1,5 @@
 package tntbot.core;
 
-import com.fasterxml.jackson.annotation.JsonGetter;
 
 /**
  * Notification sent to a room

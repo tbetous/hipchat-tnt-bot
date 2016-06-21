@@ -1,18 +1,18 @@
-package tntbot.webhook;
+package tntbot.core.room;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
-import tntbot.core.RoomPrivacy;
+import tntbot.core.webhook.WebhookLinks;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonPOJOBuilder(buildMethodName = "build", withPrefix = "with")
-public class WebhookRoomBuilder {
+public class RoomBuilder {
 	private Long id;
 	private String name;
 	private boolean archived;
 	private WebhookLinks links;
-	private RoomPrivacy privacy;
+	private RoomPrivacyType privacy;
 	private String version;
 	
 	public Long getId() {
@@ -20,7 +20,7 @@ public class WebhookRoomBuilder {
 	}
 
 	@JsonProperty(value = "id")
-	public WebhookRoomBuilder withId(Long id) {
+	public RoomBuilder withId(Long id) {
 		this.id = id;
 		return this;
 	}
@@ -30,7 +30,7 @@ public class WebhookRoomBuilder {
 	}
 
 	@JsonProperty(value = "name")
-	public WebhookRoomBuilder withName(String name) {
+	public RoomBuilder withName(String name) {
 		this.name = name;
 		return this;
 	}
@@ -40,7 +40,7 @@ public class WebhookRoomBuilder {
 	}
 
 	@JsonProperty(value = "is_archived")
-	public WebhookRoomBuilder withArchived(boolean archived) {
+	public RoomBuilder withArchived(boolean archived) {
 		this.archived = archived;
 		return this;
 	}
@@ -50,17 +50,17 @@ public class WebhookRoomBuilder {
 	}
 
 	@JsonProperty(value = "links")
-	public WebhookRoomBuilder withLinks(WebhookLinks links) {
+	public RoomBuilder withLinks(WebhookLinks links) {
 		this.links = links;
 		return this;
 	}
 	
-	public RoomPrivacy getPrivacy() {
+	public RoomPrivacyType getPrivacy() {
 		return privacy;
 	}
 
 	@JsonProperty(value = "privacy")
-	public WebhookRoomBuilder withPrivacy(RoomPrivacy privacy) {
+	public RoomBuilder withPrivacy(RoomPrivacyType privacy) {
 		this.privacy = privacy;
 		return this;
 	}
@@ -70,12 +70,12 @@ public class WebhookRoomBuilder {
 	}
 
 	@JsonProperty(value = "version")
-	public WebhookRoomBuilder withVersion(String version) {
+	public RoomBuilder withVersion(String version) {
 		this.version = version;
 		return this;
 	}
 	
-	public WebhookRoom build() {
-		return new WebhookRoom(this);
+	public Room build() {
+		return new Room(this);
 	}
 }

@@ -1,14 +1,14 @@
-package tntbot.core;
+package tntbot.core.room;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum RoomPrivacy {
+public enum RoomPrivacyType {
     PUBLIC("public"),
     PRIVATE("private");
 
     private String value;
 
-    RoomPrivacy(String value) {
+    RoomPrivacyType(String value) {
         this.value = value;
     }
 

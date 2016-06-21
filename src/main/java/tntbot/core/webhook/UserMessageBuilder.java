@@ -1,17 +1,18 @@
-package tntbot.webhook;
+package tntbot.core.webhook;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
+import tntbot.core.user.User;
 
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonPOJOBuilder(buildMethodName = "build", withPrefix = "with")
-public class WebhookUserMessageBuilder {
+public class UserMessageBuilder {
 	private String id;
-	private WebhookUser sender;
-	private List<WebhookUser> mentions;
+	private User sender;
+	private List<User> mentions;
 	private String message;
 	
 	public String getId() {
@@ -19,27 +20,27 @@ public class WebhookUserMessageBuilder {
 	}
 
 	@JsonProperty(value = "id")
-	public WebhookUserMessageBuilder withId(String id) {
+	public UserMessageBuilder withId(String id) {
 		this.id = id;
 		return this;
 	}
 	
-	public WebhookUser getSender() {
+	public User getSender() {
 		return sender;
 	}
 
 	@JsonProperty(value = "from")
-	public WebhookUserMessageBuilder withSender(WebhookUser sender) {
+	public UserMessageBuilder withSender(User sender) {
 		this.sender = sender;
 		return this;
 	}
 	
-	public List<WebhookUser> getMentions() {
+	public List<User> getMentions() {
 		return mentions;
 	}
 
 	@JsonProperty(value = "mentions")
-	public WebhookUserMessageBuilder withMentions(List<WebhookUser> mentions) {
+	public UserMessageBuilder withMentions(List<User> mentions) {
 		this.mentions = mentions;
 		return this;
 	}
@@ -49,12 +50,12 @@ public class WebhookUserMessageBuilder {
 	}
 
 	@JsonProperty(value = "message")
-	public WebhookUserMessageBuilder withMessage(String message) {
+	public UserMessageBuilder withMessage(String message) {
 		this.message = message;
 		return this;
 	}
 	
-	public WebhookUserMessage build() {
-		return new WebhookUserMessage(this);
+	public UserMessage build() {
+		return new UserMessage(this);
 	}
 }

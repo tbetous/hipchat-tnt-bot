@@ -1,12 +1,13 @@
-package tntbot.webhook;
+package tntbot.core.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
+import tntbot.core.webhook.WebhookLinks;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonPOJOBuilder(buildMethodName = "build", withPrefix = "with")
-public class WebhookUserBuilder {
+public class UserBuilder {
 	private Long id;
 	private WebhookLinks links;
 	private String mentionName;
@@ -18,7 +19,7 @@ public class WebhookUserBuilder {
 	}
 
 	@JsonProperty(value = "id")
-	public WebhookUserBuilder withId(Long id) {
+	public UserBuilder withId(Long id) {
 		this.id = id;
 		return this;
 	}
@@ -28,7 +29,7 @@ public class WebhookUserBuilder {
 	}
 
 	@JsonProperty(value = "links")
-	public WebhookUserBuilder withLinks(WebhookLinks links) {
+	public UserBuilder withLinks(WebhookLinks links) {
 		this.links = links;
 		return this;
 	}
@@ -38,7 +39,7 @@ public class WebhookUserBuilder {
 	}
 
 	@JsonProperty(value = "mention_name")
-	public WebhookUserBuilder withMentionName(String mentionName) {
+	public UserBuilder withMentionName(String mentionName) {
 		this.mentionName = mentionName;
 		return this;
 	}
@@ -48,7 +49,7 @@ public class WebhookUserBuilder {
 	}
 
 	@JsonProperty(value = "name")
-	public WebhookUserBuilder withName(String name) {
+	public UserBuilder withName(String name) {
 		this.name = name;
 		return this;
 	}
@@ -58,12 +59,12 @@ public class WebhookUserBuilder {
 	}
 
 	@JsonProperty(value = "version")
-	public WebhookUserBuilder withVersion(String version) {
+	public UserBuilder withVersion(String version) {
 		this.version = version;
 		return this;
 	}
 	
-	public WebhookUser build() {
-		return new WebhookUser(this);
+	public User build() {
+		return new User(this);
 	}
 }

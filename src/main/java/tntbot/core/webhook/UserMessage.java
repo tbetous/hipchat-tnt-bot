@@ -1,17 +1,18 @@
-package tntbot.webhook;
+package tntbot.core.webhook;
 
 import java.util.List;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import tntbot.core.user.User;
 
-@JsonDeserialize(builder = WebhookUserMessageBuilder.class)
-public class WebhookUserMessage {
+@JsonDeserialize(builder = UserMessageBuilder.class)
+public class UserMessage {
 	private String id;
-	private WebhookUser sender;
-	private List<WebhookUser> mentions;
+	private User sender;
+	private List<User> mentions;
 	private String message;
 	
-	protected WebhookUserMessage (WebhookUserMessageBuilder builder) {
+	protected UserMessage(UserMessageBuilder builder) {
 		this.id = builder.getId();
 		this.sender = builder.getSender();
 		this.mentions = builder.getMentions();
@@ -22,11 +23,11 @@ public class WebhookUserMessage {
 		return id;
 	}
 	
-	public WebhookUser getSender() {
+	public User getSender() {
 		return sender;
 	}
 	
-	public List<WebhookUser> getMentions() {
+	public List<User> getMentions() {
 		return mentions;
 	}
 	

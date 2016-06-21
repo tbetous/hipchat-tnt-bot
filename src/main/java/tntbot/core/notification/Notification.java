@@ -1,4 +1,4 @@
-package tntbot.core;
+package tntbot.core.notification;
 
 
 /**
@@ -6,8 +6,16 @@ package tntbot.core;
  */
 public class Notification {
 	private String message;
-	private NotificationColor color;
+	private NotificationColorType color;
 	private boolean notify;
+
+	public static Notification newErrorNotification(String message) {
+		return new NotificationBuilder()
+				.withColor(NotificationColorType.RED)
+				.withNotify(false)
+				.withMessage(message)
+				.build();
+	}
 	
 	protected Notification(NotificationBuilder builder) {
 		this.message = builder.getMessage();
@@ -15,7 +23,7 @@ public class Notification {
 		this.notify = builder.isNotify();
 	}
 	
-	public NotificationColor getColor() {
+	public NotificationColorType getColor() {
 		return color;
 	}
 	

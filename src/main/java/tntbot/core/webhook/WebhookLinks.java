@@ -1,4 +1,4 @@
-package tntbot.webhook;
+package tntbot.core.webhook;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 

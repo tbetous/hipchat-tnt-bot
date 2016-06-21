@@ -1,33 +1,33 @@
-package tntbot.webhook.event.message;
+package tntbot.core.webhook.event.message;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
-import tntbot.webhook.WebhookRoom;
-import tntbot.webhook.WebhookUserMessage;
+import tntbot.core.room.Room;
+import tntbot.core.webhook.UserMessage;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonPOJOBuilder(buildMethodName = "build", withPrefix = "with")
 public class WebhookMessageEventContentBuilder {
-	private WebhookUserMessage message;
-	private WebhookRoom room;
+	private UserMessage userMessage;
+	private Room room;
 
-	public WebhookUserMessage getMessage() {
-		return message;
+	public UserMessage getUserMessage() {
+		return userMessage;
 	}
 
 	@JsonProperty(value = "message")
-	public WebhookMessageEventContentBuilder withMessage(WebhookUserMessage message) {
-		this.message = message;
+	public WebhookMessageEventContentBuilder withUserMessage(UserMessage userMessage) {
+		this.userMessage = userMessage;
 		return this;
 	}
 
-	public WebhookRoom getRoom() {
+	public Room getRoom() {
 		return room;
 	}
 
 	@JsonProperty(value = "room")
-	public WebhookMessageEventContentBuilder withRoom(WebhookRoom room) {
+	public WebhookMessageEventContentBuilder withRoom(Room room) {
 		this.room = room;
 		return this;
 	}

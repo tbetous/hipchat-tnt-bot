@@ -1,24 +1,24 @@
-package tntbot.webhook.event.message;
+package tntbot.core.webhook.event.message;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import tntbot.webhook.WebhookRoom;
-import tntbot.webhook.WebhookUserMessage;
+import tntbot.core.room.Room;
+import tntbot.core.webhook.UserMessage;
 
 @JsonDeserialize(builder = WebhookMessageEventContentBuilder.class)
 public class WebhookMessageEventContent {
-	private WebhookUserMessage message;
-	private WebhookRoom room;
+	private UserMessage userMessage;
+	private Room room;
 	
 	protected WebhookMessageEventContent(WebhookMessageEventContentBuilder builder) {
-		this.message = builder.getMessage();
+		this.userMessage = builder.getUserMessage();
 		this.room = builder.getRoom();
 	}
 	
-	public WebhookUserMessage getMessage() {
-		return message;
+	public UserMessage getUserMessage() {
+		return userMessage;
 	}
 	
-	public WebhookRoom getRoom() {
+	public Room getRoom() {
 		return room;
 	}
 }

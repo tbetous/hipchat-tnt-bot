@@ -3,9 +3,9 @@ package tntbot.resources;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
-import tntbot.core.Notification;
-import tntbot.core.NotificationBuilder;
-import tntbot.core.NotificationColor;
+import tntbot.core.notification.Notification;
+import tntbot.core.notification.NotificationBuilder;
+import tntbot.core.notification.NotificationColorType;
 
 @Path("/hello")
 @Produces(MediaType.APPLICATION_JSON)
@@ -17,7 +17,7 @@ public class HelloWorldResource {
 		return new NotificationBuilder()
 			.withMessage("Hello world !")
 			.withNotify(true)
-			.withColor(NotificationColor.GREEN)
+			.withColor(NotificationColorType.GREEN)
 			.build();
 	}
 	

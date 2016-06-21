@@ -1,15 +1,15 @@
-package tntbot.core;
+package tntbot.core.notification;
 
 public class NotificationBuilder {
 	private String message = "";
-	private NotificationColor color = NotificationColor.RANDOM;
+	private NotificationColorType color = NotificationColorType.RANDOM;
 	private boolean notify = false;
 	
-	public NotificationColor getColor() {
+	public NotificationColorType getColor() {
 		return color;
 	}
 
-	public NotificationBuilder withColor(NotificationColor color) {
+	public NotificationBuilder withColor(NotificationColorType color) {
 		this.color = color;
 		return this;
 	}

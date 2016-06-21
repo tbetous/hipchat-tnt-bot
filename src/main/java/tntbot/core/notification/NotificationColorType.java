@@ -1,11 +1,11 @@
-package tntbot.core;
+package tntbot.core.notification;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * Background color for message.
  */
-public enum NotificationColor {
+public enum NotificationColorType {
     YELLOW("yellow"),
     GREEN("green"),
     RED("red"),
@@ -15,7 +15,7 @@ public enum NotificationColor {
 
     private String value;
 
-    NotificationColor(String value) {
+    NotificationColorType(String value) {
         this.value = value;
     }
 

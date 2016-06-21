@@ -3,7 +3,7 @@ package tntbot;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Environment;
 import tntbot.resources.HelloWorldResource;
-import tntbot.resources.RandomResource;
+import tntbot.resources.RandomPickUserResource;
 
 public class TntBotApplication extends Application<TntBotConfiguration>{
 
@@ -15,7 +15,7 @@ public class TntBotApplication extends Application<TntBotConfiguration>{
 	public void run(TntBotConfiguration configuration, Environment environment)
 			throws Exception {
 		environment.jersey().register(new HelloWorldResource());
-		environment.jersey().register(new RandomResource());
+		environment.jersey().register(new RandomPickUserResource());
 	}
  
 }

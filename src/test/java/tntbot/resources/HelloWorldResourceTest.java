@@ -3,9 +3,8 @@ package tntbot.resources;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
-import tntbot.core.Notification;
-import tntbot.core.NotificationColor;
-import tntbot.resources.HelloWorldResource;
+import tntbot.core.notification.Notification;
+import tntbot.core.notification.NotificationColorType;
 
 public class HelloWorldResourceTest {
 	
@@ -20,7 +19,7 @@ public class HelloWorldResourceTest {
 	public void should_return_notification_with_green_as_color() {
 		HelloWorldResource helloWorldRessource = new HelloWorldResource();
 		Notification notification = helloWorldRessource.hello();
-		Assertions.assertThat(notification.getColor()).isEqualTo(NotificationColor.GREEN);
+		Assertions.assertThat(notification.getColor()).isEqualTo(NotificationColorType.GREEN);
 	}
 	
 	@Test

@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import org.mockito.Mockito;
 import tntbot.core.exceptions.RandomPickUserException;
 import tntbot.core.room.Room;
 import tntbot.core.room.RoomBuilder;
@@ -14,6 +15,7 @@ import tntbot.services.RandomPickUserService;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Level;
 
 import static org.junit.Assert.*;
 
@@ -126,6 +128,38 @@ public class RandomPickUserCommandTest {
         // THEN
         Assertions.assertThat(users).hasSize(3);
         Assertions.assertThat(users).containsAll(ALL_USERS);
+    }
+
+    @Test
+    public void should_execute_random_pick_user_from_list() throws Exception {
+        //GIVEN
+        RandomPickUserCommand command = Mockito.spy(new RandomPickUserCommandBuilder()
+                .withRoom(ROOM)
+                .withType(RandomPickUserCommandType.MENTION)
+                .withPickNumber(1)
+                .withUsers(ALL_USERS)
+                .build());
+        Mockito.doReturn(ONE_USER).when(command).randomPickUser();
+
+        command.execute();
+
+        Mockito.verify(command).randomPickUser();
+    }
+
+    @Test
+    public void should_execute_random_pick_user_from_room() throws Exception {
+        //GIVEN
+        RandomPickUserCommand command = Mockito.spy(new RandomPickUserCommandBuilder()
+                .withRoom(ROOM)
+                .withType(RandomPickUserCommandType.ROOM)
+                .withPickNumber(1)
+                .withUsers(ALL_USERS)
+                .build());
+        Mockito.doReturn(ONE_USER).when(command).randomPickRoomUser();
+
+        command.execute();
+
+        Mockito.verify(command).randomPickRoomUser();
     }
 
 }

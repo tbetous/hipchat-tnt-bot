@@ -49,7 +49,7 @@ public class RandomPickUserCommandTest {
         expectedEx.expectMessage("This function is not ready !");
 
         // WHEN
-        List<User> users = command.randomPickRoomUser();
+        List<User> users = command.randomPickRoomUser().getResult();
 
         // THEN
         // Expects exceptions
@@ -68,7 +68,7 @@ public class RandomPickUserCommandTest {
         expectedEx.expectMessage("You can't pick 0 user !");
 
         // WHEN
-        List<User> users = command.randomPickUser();
+        List<User> users = command.randomPickUser().getResult();
 
         // THEN
         // Expects exceptions
@@ -87,7 +87,7 @@ public class RandomPickUserCommandTest {
         expectedEx.expectMessage("You didn't give any user to pick !");
 
         // WHEN
-        List<User> users = command.randomPickUser();
+        List<User> users = command.randomPickUser().getResult();
 
         // THEN
         // Expects exceptions
@@ -105,7 +105,7 @@ public class RandomPickUserCommandTest {
         Room room = new RoomBuilder().build();
 
         // WHEN
-        List<User> users = command.randomPickUser();
+        List<User> users = command.randomPickUser().getResult();
 
         // THEN
         Assertions.assertThat(users).hasSize(1);
@@ -123,7 +123,7 @@ public class RandomPickUserCommandTest {
         Room room = new RoomBuilder().build();
 
         // WHEN
-        List<User> users = command.randomPickUser();
+        List<User> users = command.randomPickUser().getResult();
 
         // THEN
         Assertions.assertThat(users).hasSize(3);
@@ -143,7 +143,7 @@ public class RandomPickUserCommandTest {
 
         command.execute();
 
-        Mockito.verify(command).randomPickUser();
+        Mockito.verify(command).randomPickUser().getResult();
     }
 
     @Test
@@ -159,7 +159,7 @@ public class RandomPickUserCommandTest {
 
         command.execute();
 
-        Mockito.verify(command).randomPickRoomUser();
+        Mockito.verify(command).randomPickRoomUser().getResult();
     }
 
 }

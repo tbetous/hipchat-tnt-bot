@@ -31,14 +31,19 @@ public class RandomPickUserCommandResultProvider extends EventCommandResultProvi
 
     private String createMessage(List<User> users) {
         StringBuilder sb = new StringBuilder("RPU result : ");
-        int last = users.size() - 1;
-
-        String result = String.join(" and ",
-                users.subList(0, last).stream()
-                        .map(user -> user.getAnnotedMentionName())
-                        .collect(Collectors.joining(", ")),
-                users.get(last).getMentionName());
-
-        return result;
+        String result;
+        if (users.size() == 0) {
+            result = "No one ! Let the multi faced god will decide !";
+        } else if (users.size() == 1) {
+            result = users.get(0).getAnnotedMentionName();
+        } else {
+            int last = users.size() - 1;
+            result = String.join(" and ",
+                    users.subList(0, last).stream()
+                            .map(user -> user.getAnnotedMentionName())
+                            .collect(Collectors.joining(", ")),
+                    users.get(last).getAnnotedMentionName());
+        }
+        return sb.append(result).toString();
     }
 }

@@ -1,15 +1,21 @@
 package tntbot.core.notification;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import tntbot.core.message.MessageFormatType;
 
 /**
  * Notification sent to a room
  */
 public class Notification {
+
 	private String message;
+
 	private NotificationColorType color;
+
+	@JsonProperty("message_format")
 	private MessageFormatType messageType;
+
 	private boolean notify;
 
 	protected Notification(NotificationBuilder builder) {

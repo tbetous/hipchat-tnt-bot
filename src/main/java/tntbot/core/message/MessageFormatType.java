@@ -1,5 +1,6 @@
 package tntbot.core.message;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**

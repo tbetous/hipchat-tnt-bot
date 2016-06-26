@@ -56,6 +56,10 @@ public class RandomPickUserCommand  {
         if(pickNumber < 1) {
             throw new RandomPickUserException("You can't pick 0 user !");
         }
+        if(pickNumber > users.size()) {
+            throw new RandomPickUserException("Please, be realistic. You can't pick the entire world !");
+        }
+
 
         int index = 0;
         Random rand = new Random();

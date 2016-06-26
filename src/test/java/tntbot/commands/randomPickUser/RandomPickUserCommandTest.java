@@ -91,6 +91,25 @@ public class RandomPickUserCommandTest {
     }
 
     @Test
+    public void should_throw_an_exception_when_pick_number_is_more_than_user_number() throws Exception{
+        //GIVEN
+        RandomPickUserCommand command = new RandomPickUserCommandBuilder()
+                .withRoom(ROOM)
+                .withType(RandomPickUserCommandType.MENTION)
+                .withPickNumber(100000)
+                .withUsers(ALL_USERS)
+                .build();
+        expectedEx.expect(RandomPickUserException.class);
+        expectedEx.expectMessage("Please, be realistic. You can't pick the entire world !");
+
+        // WHEN
+        List<User> users = command.randomPickUser().getResult();
+
+        // THEN
+        // Expects exceptions
+    }
+
+    @Test
     public void should_return_one_user_when_number_of_pick_is_one_and_user_number_in_the_list_is_more_than_one() throws Exception {
         //GIVEN
         RandomPickUserCommand command = new RandomPickUserCommandBuilder()

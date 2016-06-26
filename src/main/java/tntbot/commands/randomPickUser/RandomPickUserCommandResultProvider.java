@@ -9,9 +9,6 @@ import tntbot.core.user.User;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * Created by Thomas Betous on 26/06/2016.
- */
 public class RandomPickUserCommandResultProvider extends EventCommandResultProvider<List<User>> {
 
     protected RandomPickUserCommandResultProvider(RandomPickUserCommandResultProviderBuilder builder) {

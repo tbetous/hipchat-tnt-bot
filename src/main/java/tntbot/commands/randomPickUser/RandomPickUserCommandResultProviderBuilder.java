@@ -4,9 +4,6 @@ import tntbot.core.user.User;
 
 import java.util.List;
 
-/**
- * Created by Thomas Betous on 26/06/2016.
- */
 public class RandomPickUserCommandResultProviderBuilder {
     protected List<User> result;
 

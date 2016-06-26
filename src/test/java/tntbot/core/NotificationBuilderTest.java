@@ -6,9 +6,6 @@ import tntbot.core.notification.Notification;
 import tntbot.core.notification.NotificationBuilder;
 import tntbot.core.notification.NotificationColorType;
 
-/**
- * Created by Thomas Betous on 29/05/2016.
- */
 public class NotificationBuilderTest {
 
     @Test

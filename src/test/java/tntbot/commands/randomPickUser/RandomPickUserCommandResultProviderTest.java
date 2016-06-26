@@ -12,9 +12,6 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by Thomas Betous on 26/06/2016.
- */
 public class RandomPickUserCommandResultProviderTest {
 
     private final static User USER_1 = new UserBuilder().withMentionName("Thomas").build();

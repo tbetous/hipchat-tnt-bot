@@ -19,9 +19,6 @@ import tntbot.core.webhook.event.message.WebhookMessageEventContentBuilder;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Created by Thomas Betous on 21/06/2016.
- */
 public class RandomPickUserCommandBuilderTest {
 
     private final static User USER_1 = new UserBuilder().build();

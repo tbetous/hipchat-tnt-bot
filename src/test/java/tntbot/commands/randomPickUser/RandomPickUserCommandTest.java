@@ -19,9 +19,6 @@ import java.util.logging.Level;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by Thomas Betous on 21/06/2016.
- */
 public class RandomPickUserCommandTest {
 
     private final static User USER_1 = new UserBuilder().build();

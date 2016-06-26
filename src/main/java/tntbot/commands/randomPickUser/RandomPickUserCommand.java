@@ -41,7 +41,7 @@ public class RandomPickUserCommand  {
         return pickNumber;
     }
 
-    public List<User> execute() throws RandomPickUserException {
+    public RandomPickUserCommandResultProvider execute() throws RandomPickUserException {
         if(RandomPickUserCommandType.MENTION.equals(type)) {
             return randomPickUser();
         } else {
@@ -49,7 +49,7 @@ public class RandomPickUserCommand  {
         }
     }
 
-    final protected List<User> randomPickUser() throws RandomPickUserException {
+    final protected RandomPickUserCommandResultProvider randomPickUser() throws RandomPickUserException {
         if(users == null || users.isEmpty()) {
             throw new RandomPickUserException("You didn't give any user to pick !");
         }
@@ -66,10 +66,12 @@ public class RandomPickUserCommand  {
             result.add(userList.get(index));
             userList.remove(index);
         }
-        return result;
+        return new RandomPickUserCommandResultProviderBuilder()
+                .withResult(result)
+                .build();
     }
 
-    final protected List<User> randomPickRoomUser() throws RandomPickUserException {
+    final protected RandomPickUserCommandResultProvider randomPickRoomUser() throws RandomPickUserException {
         throw new RandomPickUserException("This function is not ready !");
     }
 }

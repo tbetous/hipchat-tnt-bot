@@ -31,6 +31,10 @@ public class User {
 		return mentionName;
 	}
 
+	public String getAnnotedMentionName() {
+		return "@" + mentionName;
+	}
+
 	public String getName() {
 		return name;
 	}

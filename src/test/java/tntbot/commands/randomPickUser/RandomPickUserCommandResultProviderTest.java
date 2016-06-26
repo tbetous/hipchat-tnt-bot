@@ -2,6 +2,7 @@ package tntbot.commands.randomPickUser;
 
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
+import tntbot.core.message.MessageFormatType;
 import tntbot.core.notification.Notification;
 import tntbot.core.notification.NotificationColorType;
 import tntbot.core.user.User;
@@ -9,8 +10,6 @@ import tntbot.core.user.UserBuilder;
 
 import java.util.Arrays;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 public class RandomPickUserCommandResultProviderTest {
 
@@ -30,8 +29,6 @@ public class RandomPickUserCommandResultProviderTest {
 
         Notification notification = resultProvider.getNotification();
 
-        Assertions.assertThat(resultProvider.getNotification().getColor()).isEqualTo(NotificationColorType.GREEN);
-        Assertions.assertThat(resultProvider.getNotification().isNotify()).isEqualTo(true);
         Assertions.assertThat(resultProvider.getNotification().getMessage()).isEqualTo("RPU result : No one ! Let the multi faced god will decide !");
     }
 
@@ -43,8 +40,6 @@ public class RandomPickUserCommandResultProviderTest {
 
         Notification notification = resultProvider.getNotification();
 
-        Assertions.assertThat(resultProvider.getNotification().getColor()).isEqualTo(NotificationColorType.GREEN);
-        Assertions.assertThat(resultProvider.getNotification().isNotify()).isEqualTo(true);
         Assertions.assertThat(resultProvider.getNotification().getMessage()).isEqualTo("RPU result : @Thomas");
     }
 
@@ -56,8 +51,6 @@ public class RandomPickUserCommandResultProviderTest {
 
         Notification notification = resultProvider.getNotification();
 
-        Assertions.assertThat(resultProvider.getNotification().getColor()).isEqualTo(NotificationColorType.GREEN);
-        Assertions.assertThat(resultProvider.getNotification().isNotify()).isEqualTo(true);
         Assertions.assertThat(resultProvider.getNotification().getMessage()).isEqualTo("RPU result : @Thomas and @Yussef");
     }
 
@@ -69,8 +62,39 @@ public class RandomPickUserCommandResultProviderTest {
 
         Notification notification = resultProvider.getNotification();
 
-        Assertions.assertThat(resultProvider.getNotification().getColor()).isEqualTo(NotificationColorType.GREEN);
-        Assertions.assertThat(resultProvider.getNotification().isNotify()).isEqualTo(true);
         Assertions.assertThat(resultProvider.getNotification().getMessage()).isEqualTo("RPU result : @Thomas, @Yussef and @Rick");
+    }
+
+    @Test
+    public void should_return_a_green_notification() {
+        RandomPickUserCommandResultProvider resultProvider = new RandomPickUserCommandResultProviderBuilder()
+                .withResult(ALL_USERS)
+                .build();
+
+        Notification notification = resultProvider.getNotification();
+
+        Assertions.assertThat(resultProvider.getNotification().getColor()).isEqualTo(NotificationColorType.GREEN);
+    }
+
+    @Test
+    public void should_return_a_notification_with_notify() {
+        RandomPickUserCommandResultProvider resultProvider = new RandomPickUserCommandResultProviderBuilder()
+                .withResult(ALL_USERS)
+                .build();
+
+        Notification notification = resultProvider.getNotification();
+
+        Assertions.assertThat(resultProvider.getNotification().isNotify()).isTrue();
+    }
+
+    @Test
+    public void should_return_a_notification_with_text_as_format() {
+        RandomPickUserCommandResultProvider resultProvider = new RandomPickUserCommandResultProviderBuilder()
+                .withResult(ALL_USERS)
+                .build();
+
+        Notification notification = resultProvider.getNotification();
+
+        Assertions.assertThat(resultProvider.getNotification().getMessageType()).isEqualTo(MessageFormatType.TEXT);
     }
 }
